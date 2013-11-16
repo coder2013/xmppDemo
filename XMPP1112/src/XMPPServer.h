@@ -23,13 +23,19 @@
 
 @protocol MessageDelegate <NSObject>
 
-- (void)receivedNewMessage:(NSDictionary *)messagesDict;
+- (void)receivedNewMessage:(XMPPMessage *)message;
 
 @end
 
 @protocol IqDelegate <NSObject>
 
 - (void)receivedIq:(XMPPIQ *)xmppIq;
+
+@end
+
+@protocol PresenceDelegate <NSObject>
+
+- (void)receivedGroupPresence:(XMPPPresence *)presence;
 
 @end
 
@@ -50,6 +56,7 @@
 @property (nonatomic, weak) id<ChatDelegate> chatDelegate;
 @property (nonatomic, weak) id<MessageDelegate> messageDelegate;
 @property (nonatomic, weak) id<IqDelegate> iqDelegate;
+@property (nonatomic, weak) id<PresenceDelegate> presenceDelegate;
 
 + (XMPPServer *)sharedInstance;
 

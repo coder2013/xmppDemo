@@ -13,8 +13,8 @@
 @property (nonatomic, strong) NSString *roomJid;
 @property (nonatomic, strong) NSString *roomName;
 
-@property (nonatomic, strong) NSString *description;
-@property (nonatomic, strong) NSString *subject;
+@property (nonatomic, strong) NSString *descriptionInfo;
+@property (nonatomic, strong) NSString *subject;   //subject保存图片
 @property (nonatomic, strong) NSString *occupants;
 @property (nonatomic, strong) NSString *creationdate;
 

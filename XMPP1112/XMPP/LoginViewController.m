@@ -39,7 +39,7 @@
 
 - (IBAction)action_login:(id)sender {
     
-    [[XMPPServer sharedInstance] setupUserInfoName:@"coder01" Password:@"000000" Domain:@"shuqiong" Server:@"192.168.0.151" Port:5222];
+    [[XMPPServer sharedInstance] setupUserInfoName:@"coder01" Password:@"000000" Domain:@"shuqiong" Server:@"192.168.1.100" Port:5222];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

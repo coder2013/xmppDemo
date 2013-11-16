@@ -20,4 +20,6 @@
 - (IBAction)action_RoomList:(id)sender;
 - (IBAction)action_conference:(id)sender;
 - (IBAction)action_roominfo:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end

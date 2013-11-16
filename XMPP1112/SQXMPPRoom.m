@@ -12,7 +12,7 @@
 
 - (NSString *)description {
     
-    return [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@",self.roomJid,self.roomName,self.description,self.subject,self.occupants,self.creationdate];
+    return [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@",self.roomJid,self.roomName,self.descriptionInfo,self.subject,self.occupants,self.creationdate];
 }
 
 @end

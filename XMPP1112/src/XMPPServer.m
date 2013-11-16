@@ -121,26 +121,42 @@
 
 - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message {
     
-    if ([message isChatMessageWithBody]) {
+    if ([message isMessageWithBody] && [message.type isEqualToString:@"groupchat"]) {
         
-        NSLog(@"message: %@",message.description);
+        [self.messageDelegate receivedNewMessage:message];
     }
 }
 
 - (void)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq {
     
-    NSLog(@"iq:%@",iq.description);
+    NSLog(@"didReceiveIQ:%@",iq.description);
     [self.iqDelegate receivedIq:iq];
 }
 
 - (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence {
     
+    NSLog(@"didReceivePresence:%@",presence.description);
     //状态
     NSString *presenceType = [presence type];
     //当前用户
     NSString *userId = [[sender myJID] user];
     //状态用户if
     NSString *presenceFromUser = [[presence from] user];
+    
+    NSArray *childrenArray = presence.children;
+    if (childrenArray.count > 0) {
+        for (DDXMLElement *item in childrenArray) {
+            if ([item.name isEqualToString:@"x"]) {
+                
+                NSArray *nameSpaceArray = item.namespaces;
+                for (DDXMLElement *nameSpace in nameSpaceArray) {
+                    if ([nameSpace.stringValue isEqualToString:@"http://jabber.org/protocol/muc#user"]) {
+                        [self.presenceDelegate receivedGroupPresence:presence];
+                    }
+                }
+            }
+        }
+    }
     
     if ([presenceType isEqualToString:@"available"] && ![userId isEqualToString:presenceFromUser]) {
         
