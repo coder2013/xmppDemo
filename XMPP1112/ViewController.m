@@ -190,25 +190,20 @@
             SQXMPPRoom *roomItem = [[SQXMPPRoom alloc] init];
             
             roomItem.roomJid = [xmppIq attributeForName:@"from"].stringValue;
-            NSArray *arr = xmppIq.childElement.children;
-            for (DDXMLElement *item in arr) {
-                if ([item.name isEqualToString:@"identity"]) {
-                    roomItem.roomName = [item attributeForName:@"name"].stringValue;
-                }
-                if ([item.name isEqualToString:@"x"]) {
-                    for (DDXMLElement *xItem in item.children) {
-                        
-                        NSString *varStr = [xItem attributeForName:@"var"].stringValue;
-                        if ([varStr isEqualToString:@"muc#roominfo_description"]) {
-                            roomItem.descriptionInfo = [xItem elementForName:@"value"].stringValue;
-                        } else if ([varStr isEqualToString:@"muc#roominfo_subject"]) {
-                            roomItem.subject = [xItem elementForName:@"value"].stringValue;
-                        } else if ([varStr isEqualToString:@"muc#roominfo_occupants"]) {
-                            roomItem.occupants = [xItem elementForName:@"value"].stringValue;
-                        } else if ([varStr isEqualToString:@"x-muc#roominfo_creationdate"]) {
-                            roomItem.creationdate = [xItem elementForName:@"value"].stringValue;
-                        }
-                    }
+            
+            DDXMLElement *xElement = [[xmppIq elementForName:@"query"] elementForName:@"x"];
+            NSArray *childElementsArray = [xElement children];
+            for (DDXMLElement *childItem in childElementsArray) {
+                
+                NSString *varStringValue = [childItem attributeForName:@"var"].stringValue;
+                if ([varStringValue isEqualToString:@"muc#roominfo_description"]) {
+                    roomItem.descriptionInfo = [childItem elementForName:@"value"].stringValue;
+                } else if ([varStringValue isEqualToString:@"muc#roominfo_subject"]) {
+                    roomItem.subject = [childItem elementForName:@"value"].stringValue;
+                } else if ([varStringValue isEqualToString:@"muc#roominfo_occupants"]) {
+                    roomItem.occupants = [childItem elementForName:@"value"].stringValue;
+                } else if ([varStringValue isEqualToString:@"x-muc#roominfo_creationdate"]) {
+                    roomItem.creationdate = [childItem elementForName:@"value"].stringValue;
                 }
             }
             [dataArray addObject:roomItem];
@@ -223,13 +218,35 @@
     
     for (SQXMPPRoom *roomItem in dataArray) {
         
-        if ([roomItem.roomJid isEqualToString:[NSString stringWithFormat:@"%@@conference.shuqiong",presence.from.user]]) {
+        if ([roomItem.roomJid isEqualToString:[NSString stringWithFormat:@"%@@%@",presence.from.user,confrence]]) {
             
             ChatViewController *chatCtr = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
             chatCtr.roomItem = roomItem;
             [self.navigationController pushViewController:chatCtr animated:YES];
+            break ;
         }
     }
 }
 
+- (IBAction)xmlDemo:(id)sender {
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"xml" ofType:@"xml"];
+//    NSData *xmlData = [NSData dataWithContentsOfFile:path];
+//    
+//    DDXMLDocument *document = [[DDXMLDocument alloc] initWithData:xmlData options:0 error:nil];
+//    
+//    DDXMLElement *iqElement = [document rootElement];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"XMLDemo" ofType:@"txt"];
+    NSData *xmlData = [NSData dataWithContentsOfFile:path];
+    
+    DDXMLDocument *document = [[DDXMLDocument alloc] initWithData:xmlData options:0 error:nil];
+    
+    DDXMLElement *iqElement = [document rootElement];
+    DDXMLElement *queryElement = [iqElement elementForName:@"query"];
+    DDXMLElement *xElement = [queryElement elementForName:@"x"];
+    
+    NSArray *attArray = [iqElement nodesForXPath:@"field" error:nil];
+    NSLog(@"feature:+++++++%@",[iqElement nodesForXPath:@"feature" error:nil]);
+    NSLog(@"field:-------%@",attArray);
+}
 @end

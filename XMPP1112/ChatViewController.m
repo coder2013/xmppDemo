@@ -88,8 +88,10 @@
     DDXMLElement *body = [DDXMLElement elementWithName:@"body" stringValue:self.textField.text];
     
     [message addChild:body];
-    [messagesArray addObject:message];
-    [self.tableView reloadData];
+    
+    //发了之后自己也会受到
+//    [messagesArray addObject:message];
+//    [self.tableView reloadData];
     
     NSLog(@"message: %@",message);
     

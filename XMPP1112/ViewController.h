@@ -21,5 +21,6 @@
 - (IBAction)action_conference:(id)sender;
 - (IBAction)action_roominfo:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)xmlDemo:(id)sender;
 
 @end

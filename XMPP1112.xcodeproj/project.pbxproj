@@ -28,8 +28,10 @@
 		450123AC183744DF0016C516 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450123AB183744DF0016C516 /* ImageIO.framework */; };
 		450123B01837463F0016C516 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450123AE1837463F0016C516 /* ChatViewController.m */; };
 		450123B11837463F0016C516 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 450123AF1837463F0016C516 /* ChatViewController.xib */; };
+		450123B3183770F50016C516 /* XMLDemo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 450123B2183770F50016C516 /* XMLDemo.txt */; };
 		451B685A1833119F00B17A59 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451B68581833119F00B17A59 /* LoginViewController.m */; };
 		451B685B1833119F00B17A59 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451B68591833119F00B17A59 /* LoginViewController.xib */; };
+		451E7501183869F800F1E2D2 /* xml.xml in Resources */ = {isa = PBXBuildFile; fileRef = 451E7500183869F800F1E2D2 /* xml.xml */; };
 		4548DA9518361BB100846E82 /* SQXMPPRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4548DA9418361BB100846E82 /* SQXMPPRoom.m */; };
 		45B4680518322374002A278F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B4680418322374002A278F /* UIKit.framework */; };
 		45B4680718322374002A278F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B4680618322374002A278F /* Foundation.framework */; };
@@ -215,9 +217,11 @@
 		450123AD1837463F0016C516 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		450123AE1837463F0016C516 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		450123AF1837463F0016C516 /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		450123B2183770F50016C516 /* XMLDemo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XMLDemo.txt; sourceTree = "<group>"; };
 		451B68571833119F00B17A59 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = XMPP/LoginViewController.h; sourceTree = "<group>"; };
 		451B68581833119F00B17A59 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = XMPP/LoginViewController.m; sourceTree = "<group>"; };
 		451B68591833119F00B17A59 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = XMPP/LoginViewController.xib; sourceTree = "<group>"; };
+		451E7500183869F800F1E2D2 /* xml.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = xml.xml; sourceTree = "<group>"; };
 		4548DA9318361BB100846E82 /* SQXMPPRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQXMPPRoom.h; sourceTree = "<group>"; };
 		4548DA9418361BB100846E82 /* SQXMPPRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQXMPPRoom.m; sourceTree = "<group>"; };
 		45B4680118322374002A278F /* XMPP1112.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XMPP1112.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -643,6 +647,8 @@
 				450123AD1837463F0016C516 /* ChatViewController.h */,
 				450123AE1837463F0016C516 /* ChatViewController.m */,
 				450123AF1837463F0016C516 /* ChatViewController.xib */,
+				450123B2183770F50016C516 /* XMLDemo.txt */,
+				451E7500183869F800F1E2D2 /* xml.xml */,
 			);
 			path = XMPP1112;
 			sourceTree = "<group>";
@@ -1481,10 +1487,12 @@
 				45B4681718322374002A278F /* Default.png in Resources */,
 				4501239A1837447F0016C516 /* LICENSE in Resources */,
 				45B4681918322374002A278F /* Default@2x.png in Resources */,
+				451E7501183869F800F1E2D2 /* xml.xml in Resources */,
 				45B4681B18322374002A278F /* Default-568h@2x.png in Resources */,
 				45F7153D1832247200677C73 /* README.txt in Resources */,
 				45012379183740AA0016C516 /* SQXMPPRoomInfoCell.xib in Resources */,
 				4501239B1837447F0016C516 /* README.md in Resources */,
+				450123B3183770F50016C516 /* XMLDemo.txt in Resources */,
 				45B4682118322374002A278F /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1734,7 +1742,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/shuqiong/Desktop/XMPP1112/XMPP1112/XMPP/Vendor/libidn,
+					/Users/shuqiong/Desktop/test/xmppDemo/XMPP1112/XMPP/Vendor/libidn,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1755,7 +1763,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/shuqiong/Desktop/XMPP1112/XMPP1112/XMPP/Vendor/libidn,
+					/Users/shuqiong/Desktop/test/xmppDemo/XMPP1112/XMPP/Vendor/libidn,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

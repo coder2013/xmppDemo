@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<iq xmlns="jabber:client" type="result" id="roomInfo" from="房间2@conference.shuqiong" to="coder01@shuqiong/98d46251">
+  <query xmlns="http://jabber.org/protocol/disco#info">
+    <identity category="conference" name="这是房间2" type="text"/>
+    <feature var="http://jabber.org/protocol/muc"/>
+    <feature var="muc_public"/>
+    <feature var="muc_open"/>
+    <feature var="muc_unmoderated"/>
+    <feature var="muc_semianonymous"/>
+    <feature var="muc_unsecured"/>
+    <feature var="muc_persistent"/>
+    <feature var="http://jabber.org/protocol/disco#info"/>
+    <x xmlns="jabber:x:data" type="result">
+      <field var="FORM_TYPE" type="hidden">
+        <value>http://jabber.org/protocol/muc#roominfo</value>
+      </field>
+      <field var="muc#roominfo_description" label="描述">
+        <value>描述：房间2</value>
+      </field>
+      <field var="muc#roominfo_subject" label="主题">
+        <value>http://d.hiphotos.baidu.com/image/w%3D1280%3Bcrop%3D0%2C0%2C1280%2C800/sign=587010fad058ccbf1bbcb13821e8875d/4a36acaf2edda3cc9777016800e93901203f92e3.jpg</value>
+      </field>
+      <field var="muc#roominfo_occupants" label="占有者人数">
+        <value>2</value>
+      </field>
+      <field var="x-muc#roominfo_creationdate" label="创建日期">
+        <value>20131115T08:56:05</value>
+      </field>
+    </x>
+  </query>
+</iq>
